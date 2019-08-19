@@ -57,6 +57,18 @@ if ($_GET){
             echo json_encode($response);
             break;
 
+        case "historiPelapor" : //untuk teknisi
+            $idUser = $_GET['id_user_akun'];
+            $sql = mysqli_query($db, "Select * from pelapor where id_user_akun ='$idUser'");
+            $arrayJson = array();
+
+            while($data = mysqli_fetch_assoc($sql)){
+                $arrayJson[] = $data;
+            }
+            $response = $arrayJson;
+            echo json_encode($response);
+            break;
+
         case "getTokenRegID" : //untuk mengirim notif
             $idUser = $_GET['id_user'];
             $sql = mysqli_query($db, "Select * from akun where id_user ='$idUser'");
