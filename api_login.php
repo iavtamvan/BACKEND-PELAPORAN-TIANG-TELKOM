@@ -13,7 +13,7 @@ if ($_GET){
     $username = $_GET['username'];
     $password = $_GET['password'];
 
-    $sql = mysqli_query($db, "Select * from akun where username = '$username' || password = '$password'");
+    $sql = mysqli_query($db, "Select * from akun where username = '$username' and password = '$password'");
     $user = mysqli_fetch_assoc($sql);
 
     $id_account = "".$user['id_user'];
